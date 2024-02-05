@@ -281,7 +281,8 @@ if selected_main == "Kolom":
             """
       ):
             
-
+   col8 = st.columns(0.7)
+   with col8:
             st.header("Korelasi 🧮")
             corr_matrix_selected = numeric_df.corrwith(numeric_df[selected_feature])
             corr_df = pd.DataFrame({'Korelasi': corr_matrix_selected})
@@ -480,7 +481,7 @@ else:
          fig.update_layout(title_text="Heatmap Korelasi antara Semua Kolom")
 
          # Tampilkan heatmap menggunakan st.plotly_chart
-         my_grid = grid(0.7, vertical_align="bottom")
+         my_grid = grid(1, vertical_align="bottom")
          my_grid.plotly_chart(fig, use_container_width=True)
          
 
