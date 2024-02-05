@@ -215,7 +215,7 @@ if selected_main == "Kolom":
    #with col5:
       
    # ROW 4
-   col6= st.columns(1, gap="small")
+   col6= st.columns(1)
 
    with col6:
       with stylable_container(
