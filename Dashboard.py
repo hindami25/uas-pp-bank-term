@@ -268,7 +268,7 @@ if selected_main == "Kolom":
             my_grid = grid(1, vertical_align="bottom")
             my_grid.altair_chart(chart, use_container_width=True)
             
-   col8 = st.columns(0.7)
+   col8,col9 = st.columns([0.7, 0.3])
    with col8:
        with stylable_container(
          key="corr",
