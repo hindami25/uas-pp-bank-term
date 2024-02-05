@@ -167,7 +167,7 @@ if selected_menu == "OUTPUT":
             }
             """
       ):
-            my_grid=grid(1, vertical_align=bottom)
+            my_grid=grid(1, vertical_align="bottom")
             my_grid.subheader("Kategori Perintis Keuangan")
             my_grid.write("Nasabah yang memiliki saldo rendah dengan usia bervariasi")
     with col5:
@@ -183,7 +183,7 @@ if selected_menu == "OUTPUT":
             }
             """
       ):
-         my_grid=grid(1, vertical_align=bottom)
+         my_grid=grid(1, vertical_align="bottom")
          my_grid.subheader("Kategori Pencari Stabilitas Keuangan")
          my_grid.write("Nasabah yang memiliki saldo rata-rata dengan usia bervariasi")
 
@@ -200,7 +200,7 @@ if selected_menu == "OUTPUT":
             }
             """
       ):
-         my_grid=grid(1, vertical_align=bottom)
+         my_grid=grid(1, vertical_align="bottom")
          my_grid.subheader("Kategori Investor Keuangan")
          my_grid.write("Nasabah yang memiliki saldo tinggi dengan usia bervariasi")
 

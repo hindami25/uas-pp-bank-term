@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import altair as alt
 import streamlit as st
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import seaborn as sns
 from streamlit_option_menu import option_menu
 from streamlit_extras.stylable_container import stylable_container 
@@ -122,7 +122,7 @@ if selected_main == "Kolom":
    st.divider()
    
    # ROW 3
-   col3, col4, col5 = st.columns([0.2, 0.5, 0.3], gap="small")
+   col3, col4 = st.columns([0.3, 0.7], gap="small")
 
    with col3:
       with stylable_container(
@@ -212,39 +212,8 @@ if selected_main == "Kolom":
             st.plotly_chart(fig, use_container_width=True)
       
 
-   with col5:
-      with stylable_container(
-         key="container_with_border",
-         css_styles="""
-            {
-               border: 2px solid #ccc; /* Warna dan ketebalan border */
-               border-radius: 10px; /* Jari-jari sudut (rounded corners) */
-               padding: 0 5px 0 5px; /* Jarak antara isi dan border */
-               background-color: #ffffff; /* Warna background */
-               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan (shadow) */
-            }
-            """
-      ):
-         st.header("Korelasi 🧮")
-         corr_matrix_selected = numeric_df.corrwith(numeric_df[selected_feature])
-         corr_df = pd.DataFrame({'Korelasi': corr_matrix_selected})
-
-         # Buat objek subplot
-         fig, ax = plt.subplots(figsize=(6, 6))
-
-         # Buat heatmap menggunakan seaborn pada objek subplot
-         heatmap = sns.heatmap(corr_df.transpose(), annot=True, cmap='coolwarm', fmt=".2f", cbar=True, ax=ax)
-         plt.title(f"Heatmap Korelasi antara {selected_feature} dan kolom lainnya")
-         plt.xticks(rotation=45)
-
-         # Menambahkan keterangan di samping heatmap
-         colorbar = heatmap.collections[0].colorbar
-         colorbar.set_label('Korelasi', rotation=270, labelpad=15)
-
-         # Tampilkan heatmap menggunakan st.pyplot
-         my_grid = grid(1, vertical_align="bottom")
-         my_grid.pyplot(fig)
-
+   #with col5:
+      
    # ROW 4
    col6, col7 = st.columns([0.1, 0.5], gap="small")
 
@@ -297,6 +266,39 @@ if selected_main == "Kolom":
             #Tampilkan chart menggunakan st.altair_chart
             my_grid = grid(1, vertical_align="bottom")
             my_grid.altair_chart(chart, use_container_width=True)
+
+   with stylable_container(
+         key="corr",
+         css_styles="""
+            {
+               border: 2px solid #ccc; /* Warna dan ketebalan border */
+               border-radius: 10px; /* Jari-jari sudut (rounded corners) */
+               padding: 22px 0 22px 22px; /* Jarak antara isi dan border */
+               background-color: #ffffff; /* Warna background */
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan (shadow) */
+            }
+            """
+      ):
+            
+
+            st.header("Korelasi 🧮")
+            corr_matrix_selected = numeric_df.corrwith(numeric_df[selected_feature])
+            corr_df = pd.DataFrame({'Korelasi': corr_matrix_selected})
+
+            # Buat heatmap menggunakan plotly.graph_objects
+            fig = go.Figure(data=go.Heatmap(z=[corr_df['Korelasi']],
+                                          x=corr_df.index,
+                                          y=[selected_feature],
+                                          colorscale='blues'))
+
+            fig.update_layout(title_text=f"Heatmap Korelasi antara {selected_feature} dan kolom lainnya",
+                              xaxis=dict(title='Kolom'),
+                              yaxis=dict(title='Kolom Terpilih'))
+
+            # Tampilkan heatmap menggunakan st.plotly_chart
+            my_grid = grid(1, vertical_align="bottom")
+            my_grid.plotly_chart(fig)
+
       
 else:
    # NAMA FEATURE / ROW1
@@ -365,7 +367,7 @@ else:
    st.divider()
 
    # ROW 3
-   col5, col6 = st.columns([0.3, 0.5], gap="medium")
+   col5, col6 = st.columns([0.4, 0.6], gap="small")
 
    with col5:
       with stylable_container(
@@ -425,7 +427,7 @@ else:
          my_grid.plotly_chart(fig, use_container_width=True)
 
    # ROW 4
-   col7, col8 = st.columns([0.6, 0.4], gap="medium")
+   col7, col8 = st.columns([0.5, 0.5], gap="small")
 
    with col7:
       with stylable_container(
@@ -469,19 +471,16 @@ else:
          st.header("Korelasi Seluruh Kolom 🧮")
          corr_matrix_all = numeric_df.corr()
 
-         # Buat heatmap menggunakan seaborn
-         fig, ax = plt.subplots(figsize=(12, 10))
-         heatmap_all = sns.heatmap(corr_matrix_all, annot=True, cmap='coolwarm', fmt=".2f", cbar=True, ax=ax)
-         plt.title("Heatmap Korelasi antara Semua Kolom")
-         plt.xticks(rotation=45)
+         # Buat heatmap menggunakan plotly.graph_objects
+         fig = go.Figure(data=go.Heatmap(z=corr_matrix_all.values,
+                                       x=corr_matrix_all.columns,
+                                       y=corr_matrix_all.columns,
+                                       colorscale='blues'))
+         fig.update_layout(title_text="Heatmap Korelasi antara Semua Kolom")
 
-         # Menambahkan keterangan di samping heatmap
-         colorbar_all = heatmap_all.collections[0].colorbar
-         colorbar_all.set_label('Korelasi', rotation=270, labelpad=15)
-
-         # Tampilkan heatmap menggunakan st.pyplot
+         # Tampilkan heatmap menggunakan st.plotly_chart
          my_grid = grid(1, vertical_align="bottom")
-         my_grid.pyplot(fig,use_container_width=True)
+         my_grid.plotly_chart(fig, use_container_width=True)
          
 
 
