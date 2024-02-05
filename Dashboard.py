@@ -480,8 +480,8 @@ else:
          fig.update_layout(title_text="Heatmap Korelasi antara Semua Kolom")
 
          # Tampilkan heatmap menggunakan st.plotly_chart
-         my_grid = grid(1, vertical_align="bottom")
-         my_grid.plotly_chart(fig, use_container_width=True)
+         #my_grid = grid(1, vertical_align="bottom")
+         st.plotly_chart(fig, use_container_width=True)
          
 
 
