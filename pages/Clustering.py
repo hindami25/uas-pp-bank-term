@@ -2,7 +2,6 @@ import streamlit as st
 import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 from streamlit_option_menu import option_menu
 from st_pages import Page, show_pages, add_page_title
 from streamlit_extras.stylable_container import stylable_container 
