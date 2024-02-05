@@ -267,8 +267,10 @@ if selected_main == "Kolom":
             #Tampilkan chart menggunakan st.altair_chart
             my_grid = grid(1, vertical_align="bottom")
             my_grid.altair_chart(chart, use_container_width=True)
-
-   with stylable_container(
+            
+   col8 = st.columns(0.7)
+   with col8:
+       with stylable_container(
          key="corr",
          css_styles="""
             {
@@ -279,10 +281,7 @@ if selected_main == "Kolom":
                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan (shadow) */
             }
             """
-      ):
-            
-   col8 = st.columns(0.7)
-   with col8:
+      ):      
             st.header("Korelasi 🧮")
             corr_matrix_selected = numeric_df.corrwith(numeric_df[selected_feature])
             corr_df = pd.DataFrame({'Korelasi': corr_matrix_selected})
