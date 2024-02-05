@@ -51,7 +51,7 @@ with colB:
                }
                """
    ):
-      st.title('🎲 Model Prediksi 🎲')
+      st.title('Model Prediksi')
 
 with colC:
       my_grid = grid(1, vertical_align="bottom")

@@ -57,7 +57,7 @@ with colB:
                }
                """
    ):
-      st.title('🫧 Model Clustering 🫧')
+      st.title('Model Clustering')
 
 with colC:
       my_grid = grid(1, vertical_align="bottom")
