@@ -14,7 +14,7 @@ from streamlit_extras.metric_cards import style_metric_cards
 
 
 # Mengatur tata letak halaman
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_icon='🏠')
 
 show_pages(
     [

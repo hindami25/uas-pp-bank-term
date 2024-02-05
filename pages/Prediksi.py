@@ -67,7 +67,7 @@ with st.sidebar:
     #menu_icon="cast", default_index=0, orientation="horizontal")
 
 if selected_menu == "Tentang":
-   st.header("Tentang Model ❓")
+   st.header("Tentang Model")
    st.write("Model Prediksi menggunakan algoritma Random Forest Classifier yang dilatih dengan Bank Term Deposit Dataset dan diperoleh akurasi hingga 99% ")
    st.write("Model bertujuan untuk memprediksi apakah seorang nasabah dengan atribut/fitur tertentu akan setuju untuk menggunakan produk Deposito berjangka yang dipromosikan")
    st.divider()

@@ -65,7 +65,7 @@ with colC:
     
 
 if selected_menu == "Tentang":
-   st.header("Tentang Model ❓")
+   st.header("Tentang Model")
    st.write("Model Clustering menggunakan algoritma K-Means yang bertujuan untuk mengelompokkan data Bank Term Deposit Dataset dan diperoleh Silhouette Score: 0.59 dengan 3 Cluster")
    st.write("Model ini bertujuan untuk mengelompokkan nasabah menjadi 3 kategori")
    st.divider()
