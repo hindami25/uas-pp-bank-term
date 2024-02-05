@@ -207,7 +207,17 @@ if selected_menu == "OUTPUT":
 
 
 if selected_menu == "Experimental":
-    st.header("'Experimental'")
+    with stylable_container(
+         key="subtitle",
+         css_styles="""
+            {
+               text-align : center;
+               padding: 0px 20px 20px 0; /* Jarak antara isi dan border */
+               height: 1000px;
+            }
+            """
+   ):
+      st.header("'Experimental'")
     
     col7, col8 = st.columns(2)
     with col7:
