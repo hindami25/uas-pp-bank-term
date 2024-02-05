@@ -7,12 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from streamlit_option_menu import option_menu
 import joblib
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.inspection import permutation_importance
 from st_pages import Page, show_pages, add_page_title
-import time
 from streamlit_extras.stylable_container import stylable_container 
-from annotated_text import annotated_text, annotation
 from streamlit_extras.grid import grid 
 
 # Mengatur tata letak halaman
