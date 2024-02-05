@@ -215,32 +215,9 @@ if selected_main == "Kolom":
    #with col5:
       
    # ROW 4
-   col6, col7 = st.columns([0.1, 0.5], gap="small")
+   col6= st.columns(1, gap="small")
 
    with col6:
-      with stylable_container(
-         key="container_with_border",
-         css_styles="""
-            {
-               border: 2px solid #ccc; /* Warna dan ketebalan border */
-               border-radius: 10px; /* Jari-jari sudut (rounded corners) */
-               padding: 20px; /* Jarak antara isi dan border */
-               background-color: #ffffff; /* Warna background */
-               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan (shadow) */
-            }
-            """
-      ):
-         my_grid = grid(1, vertical_align="bottom")
-         my_grid.header("Sample Data 🔬")
-         tab3, tab4 = st.tabs(["Head", "Tail"])
-
-         with tab3:
-            st.dataframe(df[selected_feature].head(10))
-
-         with tab4:
-            st.dataframe(df[selected_feature].tail(10))
-
-   with col7:
       with stylable_container(
          key="container_with_border",
          css_styles="""
@@ -268,7 +245,7 @@ if selected_main == "Kolom":
             my_grid = grid(1, vertical_align="bottom")
             my_grid.altair_chart(chart, use_container_width=True)
             
-   col8,col9 = st.columns([0.8, 0.2])
+   col8,col9 = st.columns([0.7, 0.3])
    with col8:
        with stylable_container(
          key="corr",
@@ -299,6 +276,30 @@ if selected_main == "Kolom":
             # Tampilkan heatmap menggunakan st.plotly_chart
             my_grid = grid(1, vertical_align="bottom")
             my_grid.plotly_chart(fig)
+
+   with col9:
+      with stylable_container(
+         key="container_with_border",
+         css_styles="""
+            {
+               border: 2px solid #ccc; /* Warna dan ketebalan border */
+               border-radius: 10px; /* Jari-jari sudut (rounded corners) */
+               padding: 20px; /* Jarak antara isi dan border */
+               background-color: #ffffff; /* Warna background */
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan (shadow) */
+            }
+            """
+      ):
+         my_grid = grid(1, vertical_align="bottom")
+         my_grid.header("Sample Data 🔬")
+         tab3, tab4 = st.tabs(["Head", "Tail"])
+
+         with tab3:
+            st.dataframe(df[selected_feature].head(10))
+
+         with tab4:
+            st.dataframe(df[selected_feature].tail(10))
+
 
       
 else:
