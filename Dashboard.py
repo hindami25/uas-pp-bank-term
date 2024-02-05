@@ -230,7 +230,8 @@ if selected_main == "Kolom":
             }
             """
       ):
-         st.header("Sample Data 🔬")
+         my_grid = grid(1, vertical_align="bottom")
+         my_grid.header("Sample Data 🔬")
          tab3, tab4 = st.tabs(["Head", "Tail"])
 
          with tab3:
