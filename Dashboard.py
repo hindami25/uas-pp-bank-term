@@ -13,17 +13,15 @@ from st_pages import Page, show_pages
 # Mengatur tata letak halaman
 st.set_page_config(layout="wide", page_icon='🏠')
 
-with st.sidebar:
-   st.write("tes")
-   selected_main = option_menu("Pilih Mode", ["Semua Data", "Kolom"], 
-        icons=['house', 'list-task'], menu_icon="cast", default_index=1)
 
 show_pages(
     [
+        Page("fff"),
         Page("pages/Informasi.py", "Informasi", "💡"),
         Page("Dashboard.py", "Dataset Dashboard", "🏠"),
         Page("pages/Prediksi.py", "Model Prediksi", "🎲"),
         Page("pages/Clustering.py", "Model Clustering", "🫧"),
+        
     ]
 )
 
@@ -83,6 +81,9 @@ with st.expander("Tentang Dataset", expanded=False):
    st.write("Dataset dapat dimanfaatkan untuk memahami target nasabah dan meningkatkan efektivitas kampanye pemasaran")
 st.divider()
 
+with st.sidebar:
+   selected_main = option_menu("Pilih Mode", ["Semua Data", "Kolom"], 
+        icons=['house', 'list-task'], menu_icon="cast", default_index=1)
 
 if selected_main == "Kolom":
    # NAMA FEATURE / ROW1
