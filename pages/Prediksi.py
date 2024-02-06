@@ -282,7 +282,7 @@ if selected_menu == "PREDIKSI":
    input_data = {}
 
    # Widget untuk tombol Submit
-   if st.button("SUBMIT", type="primary", use_container_width=True):
+   if st.button("PREDIKSI", type="primary", use_container_width=True):
       submit_pressed = True
 
       # Simpan hasil input ke dalam variabel
