@@ -13,6 +13,9 @@ from st_pages import Page, show_pages
 # Mengatur tata letak halaman
 st.set_page_config(layout="wide", page_icon='🏠')
 
+with st.sidebar:
+   st.write("tes")
+
 show_pages(
     [
         Page("pages/Informasi.py", "Informasi", "💡"),
