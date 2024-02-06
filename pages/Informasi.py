@@ -1,5 +1,5 @@
 import streamlit as st
-from st_pages import Page, show_pages, add_page_title
+from st_pages import Page, show_pages
 from streamlit_extras.stylable_container import stylable_container 
 from streamlit_extras.grid import grid 
 

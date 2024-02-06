@@ -1,13 +1,8 @@
-import numpy as np
 import pandas as pd
-import plotly.express as px
-import altair as alt
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
 from streamlit_option_menu import option_menu
 import joblib
-from st_pages import Page, show_pages, add_page_title
+from st_pages import Page, show_pages
 from streamlit_extras.stylable_container import stylable_container 
 from streamlit_extras.grid import grid 
 

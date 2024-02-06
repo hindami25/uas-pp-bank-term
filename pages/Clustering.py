@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
-from st_pages import Page, show_pages, add_page_title
+from st_pages import Page, show_pages
 from streamlit_extras.stylable_container import stylable_container 
 from streamlit_extras.grid import grid 
 
