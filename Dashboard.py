@@ -16,7 +16,6 @@ st.set_page_config(layout="wide", page_icon='🏠')
 
 show_pages(
     [
-        Page("fff"),
         Page("pages/Informasi.py", "Informasi", "💡"),
         Page("Dashboard.py", "Dataset Dashboard", "🏠"),
         Page("pages/Prediksi.py", "Model Prediksi", "🎲"),
