@@ -18,7 +18,7 @@ show_pages(
         Page("pages/Informasi.py", "Informasi", "💡"),
         Page("Dashboard.py", "Dataset Dashboard", "🏠"),
         Page("pages/Prediksi.py", "Model Prediksi", "🎲"),
-        Page("pages/Clustering.py", "Model Clustering", "🫧"),
+        Page("pages/Clustering.py", "Model Clustering", ""),
     ]
 )
 
