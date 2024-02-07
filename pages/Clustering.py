@@ -142,8 +142,8 @@ if selected_menu == "OUTPUT":
 
     # Membuat grafik hasil klastering
     plt.scatter(df["age"][labels == 1], df["balance"][labels == 1], c='seagreen', label='Investor Keuangan')
-    plt.scatter(df["age"][labels == 0], df["balance"][labels == 0], c='royalblue', label='Perintis Keuangan')
-    plt.scatter(df["age"][labels == 2], df["balance"][labels == 2], c='gold', label='Pencari Stabilitas Keuangan')
+    plt.scatter(df["age"][labels == 0], df["balance"][labels == 0], c='royalblue', label='Pencari Stabilitas Keuangan')
+    plt.scatter(df["age"][labels == 2], df["balance"][labels == 2], c='gold', label='Perintis Keuangan')
     plt.title('Hasil Clustering Age - Balance')
     plt.xlabel("age")
     plt.ylabel("balance")
