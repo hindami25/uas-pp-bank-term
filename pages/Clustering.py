@@ -134,25 +134,12 @@ if selected_menu == "OUTPUT":
          st.write("Rekomendasi Hasil Clustering nasabah menggunakan fitur 'age' dan 'balance' disertai dengan label kategori")
          st.write("Rekomendasi ini merupakan Hasil Clustering yang paling baik menurut developer")
     st.divider()      
-   # Melakukan prediksi klaster untuk data
-    labels = kmeans_model.fit_predict(numeric_train_df)
-
-    # Mengatur ukuran figur
-    plt.figure(figsize=(10, 6))
-
-    # Membuat grafik hasil klastering
-    plt.scatter(df["age"][labels == 0], df["balance"][labels == 0], c='seagreen', label='Perintis Keuangan')
-    plt.scatter(df["age"][labels == 1], df["balance"][labels == 1], c='royalblue', label='Pencari Stabilitas Keuangan')
-    plt.scatter(df["age"][labels == 2], df["balance"][labels == 2], c='gold', label='Investor Keuangan')
-    plt.title('Hasil Clustering Age - Balance')
-    plt.xlabel("age")
-    plt.ylabel("balance")
-
-    plt.legend()
-
+  
     # Menampilkan plot di Streamlit
-    st.pyplot()
+    st.image("cluster.png", use_column_width=True)
+    
     st.divider()
+    
     col4, col5, col6 = st.columns(3)
     with col4:
         with stylable_container(
